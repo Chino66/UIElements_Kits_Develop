@@ -1,0 +1,8 @@
+{
+  "name": "com.chino.uielements.kits",
+  "displayName": "UIElements Kits",
+  "version": "0.0.1",
+  "unity": "2020.1",
+  "description": "UIElements开发辅助工具",
+  "type": "lib"
+}

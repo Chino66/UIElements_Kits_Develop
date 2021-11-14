@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\chino\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\chino\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_UIElements_Kits_Develop.-120070905.00" t="ExcludeRecursive" />
+    <e p="G:\UnityProject\Object_Pool_Develop\Assets\_package_\Runtime" t="Include">
+      <e p="ObjectPool.Runtime.asmdef" t="Include" />
+      <e p="Pool.cs" t="Include" />
+    </e>
+    <e p="G:\UnityProject\UIElements_Kits_Develop" t="IncludeRecursive">
+      <e p="Assets" t="Include">
+        <e p="_package_" t="Include">
+          <e p="Editor" t="Include">
+            <e p="_generate_" t="Include">
+              <e p="PackagePath.cs" t="Include" />
+            </e>
+            <e p="UIElementsKits.Editor.asmdef" t="Include" />
+          </e>
+          <e p="Runtime" t="Include">
+            <e p="ScrollViewEnhance.cs" t="Include" />
+            <e p="UIElementsKits.Runtime.asmdef" t="Include" />
+            <e p="VisualElementPool.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="ObjectPool.csproj" t="IncludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
+      <e p="UIElements_Kits_Develop.sln" t="IncludeFlat" />
+      <e p="UIElementsKits.Editor.csproj" t="IncludeRecursive" />
+      <e p="UIElementsKits.Runtime.csproj" t="IncludeRecursive" />
+    </e>
+  </component>
+</project>

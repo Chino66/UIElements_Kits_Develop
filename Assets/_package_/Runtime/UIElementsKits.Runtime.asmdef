@@ -1,0 +1,16 @@
+{
+    "name": "UIElementsKits.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:20d6f6b6ec82e2c469c35f1891e0c956"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
