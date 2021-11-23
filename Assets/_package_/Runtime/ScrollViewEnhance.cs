@@ -150,6 +150,11 @@ namespace UIElementsKits
 
         public void Redraw(int drawCount, object ctx = null)
         {
+            if (drawCount <= 0)
+            {
+                return;
+            }
+
             _context = ctx;
             Clear();
             SetItemCount(drawCount);
