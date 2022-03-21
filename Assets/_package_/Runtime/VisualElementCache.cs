@@ -28,5 +28,20 @@ namespace UIElementsKits
 
             return _cache[query] as T;
         }
+        
+        public VisualElement Get(string query)
+        {
+            if (!_cache.ContainsKey(query))
+            {
+                _cache[query] = Create(query);
+            }
+
+            return _cache[query];
+        }
+        
+        private VisualElement Create(string query)
+        {
+            return _root.Q(query);
+        }
     }
 }

@@ -22,8 +22,8 @@ namespace UIElementsKits.UIFramework
             }
 
             var view = System.Activator.CreateInstance<T>();
-            view.Initialize(Self);
             view.SetUI(this);
+            view.Initialize(Self);
             Views.Add(type, view);
             return view;
         }
