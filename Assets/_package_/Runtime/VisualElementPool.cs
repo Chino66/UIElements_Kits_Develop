@@ -25,11 +25,8 @@ namespace UIElementsKits
         protected override VisualElement Create()
         {
             var o = _asset.CloneTree();
-            if (CreateFunc != null)
-            {
-                return CreateFunc.Invoke(o);
-            }
-            return o;
+            var item = CreateFunc != null ? CreateFunc.Invoke(o) : o;
+            return item;
         }
 
         public override void Return(VisualElement item, bool checkContains = false)

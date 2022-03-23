@@ -3,15 +3,21 @@ using UnityEngine.UIElements;
 
 namespace UIElementsKits.UIFramework
 {
-    public abstract class View : VisualElement
+    public abstract class View
     {
         public UI UI;
 
         public VisualElement Parent => this.Parent;
-        public VisualElement Self => this;
+        public VisualElement Self { get; }
 
         public View()
         {
+            Self = new VisualElement();
+        }
+
+        public void Add(VisualElement element)
+        {
+            Self.Add(element);
         }
 
         public virtual void Initialize(VisualElement parent)
