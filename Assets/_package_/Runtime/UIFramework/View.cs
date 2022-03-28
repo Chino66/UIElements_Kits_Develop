@@ -13,6 +13,7 @@ namespace UIElementsKits.UIFramework
         public View()
         {
             Self = new VisualElement();
+            Self.style.flexGrow = 1;
         }
 
         public void Add(VisualElement element)
@@ -22,6 +23,12 @@ namespace UIElementsKits.UIFramework
 
         public virtual void Initialize(VisualElement parent)
         {
+            if (parent == null)
+            {
+                parent = new VisualElement();
+                parent.style.flexGrow = 1;
+            }
+            
             Self.name = $"{GetType().Name}";
             parent.Add(Self);
             OnInitialize(parent);
