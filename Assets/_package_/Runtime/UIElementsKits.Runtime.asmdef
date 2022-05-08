@@ -2,7 +2,8 @@
     "name": "UIElementsKits.Runtime",
     "rootNamespace": "",
     "references": [
-        "GUID:20d6f6b6ec82e2c469c35f1891e0c956"
+        "GUID:20d6f6b6ec82e2c469c35f1891e0c956",
+        "GUID:23e16eafa9836054a9e6b7de3415b359"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

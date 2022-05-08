@@ -10,5 +10,10 @@ namespace UIElementsKits
                 ? new StyleEnum<DisplayStyle>(DisplayStyle.Flex)
                 : new StyleEnum<DisplayStyle>(DisplayStyle.None);
         }
+        
+        public static void SetTextLoading(this TextElement ve)
+        {
+            ve.text = "↻";
+        }
     }
 }

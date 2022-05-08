@@ -28,7 +28,7 @@ namespace UIElementsKits.UIFramework
                 parent = new VisualElement();
                 parent.style.flexGrow = 1;
             }
-            
+
             Self.name = $"{GetType().Name}";
             parent.Add(Self);
             OnInitialize(parent);

@@ -3,6 +3,7 @@
   "displayName": "UIElements Kits",
   "version": "0.0.1",
   "unity": "2020.1",
-  "description": "UIElements开发辅助工具",
-  "type": "lib"
+  "description": "UIElements\u5f00\u53d1\u8f85\u52a9\u5de5\u5177",
+  "type": "lib",
+  "dependencies": {}
 }
