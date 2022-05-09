@@ -1,59 +1,46 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine.UIElements;
 
 namespace UIElementsKits.DataBinding
 {
-    public static class BindableElementExtensions
+    internal class UnbindAction
     {
-        private static readonly Dictionary<BindableElement, BindableElementEvent> BindableElementEvents;
+        public Action Action;
+
+        public void Invoke()
+        {
+            Action?.Invoke();
+            Action = null;
+        }
+    }
+    
+    internal static class BindableElementExtensions
+    {
+        private static readonly ConditionalWeakTable<BindableElement, UnbindAction>
+            BindableElementUnbindActions;
 
         static BindableElementExtensions()
         {
-            BindableElementEvents = new Dictionary<BindableElement, BindableElementEvent>();
+            BindableElementUnbindActions = new ConditionalWeakTable<BindableElement, UnbindAction>();
         }
 
-        internal static BindableElementEvent<T> GetBindableElementEvent<T>(this BindableElement element)
+        internal static void RecordUnbindAction(this BindableElement element, Action action)
         {
-            BindableElementEvents.TryGetValue(element, out var elementEvent);
-            return (BindableElementEvent<T>) elementEvent;
-        }
-
-
-        public static void RecordDataBindingCallback<T>(this INotifyValueChanged<T> valueChanged,
-            Action<T> action)
-        {
-            var bindableElement = valueChanged as BindableElement;
-            if (BindableElementEvents.TryGetValue(bindableElement, out var elementEvent) == false)
+            if (BindableElementUnbindActions.TryGetValue(element, out var unbindAction) == false)
             {
-                elementEvent = new BindableElementEvent<T>();
-                BindableElementEvents.Add(bindableElement, elementEvent);
+                unbindAction = new UnbindAction();
+                BindableElementUnbindActions.Add(element, unbindAction);
             }
 
-            ((BindableElementEvent<T>) elementEvent).DataBindingCallback += action;
+            unbindAction.Action += action;
         }
 
-        public static void RecordBindableElementCallback<T>(this INotifyValueChanged<T> valueChanged,
-            EventCallback<ChangeEvent<T>> action)
+        internal static void InvokeUnbindAction(this BindableElement element)
         {
-            var bindableElement = valueChanged as BindableElement;
-            if (BindableElementEvents.TryGetValue(bindableElement, out var elementEvent) == false)
-            {
-                elementEvent = new BindableElementEvent<T>();
-                BindableElementEvents.Add(bindableElement, elementEvent);
-            }
-
-            ((BindableElementEvent<T>) elementEvent).BindableElementCallback += action;
+            BindableElementUnbindActions.TryGetValue(element, out var unbindAction);
+            unbindAction?.Invoke();
         }
-    }
-
-    internal class BindableElementEvent
-    {
-    }
-
-    internal class BindableElementEvent<T> : BindableElementEvent
-    {
-        public Action<T> DataBindingCallback;
-        public EventCallback<ChangeEvent<T>> BindableElementCallback;
     }
 }
