@@ -90,15 +90,26 @@ namespace UIElementsKits.DataBinding
 
         internal static void _bindSameType<T>(Binding binding, int index, BindableElement element)
         {
+            //Debug.Log($"<b>_bindSameType 绑定</b> index is {index}");
             INotifyValueChanged<T> valueChanged = (INotifyValueChanged<T>) element;
             /*绑定赋初始值*/
             /*todo delegate?*/
-            valueChanged.value = (T) binding.GetPropertyInfoByIndex(index).GetValue(binding.BindingObject);
-
+            
+            var value = (T) binding.GetPropertyInfoByIndex(index).GetValue(binding.BindingObject);
+            valueChanged.value = value;
+            // valueChanged.SetValueWithoutNotify(value);
+            //Debug.Log($"<b>初始值:</b>index is {index}, value is {value}");
+            
+            
             /*数据绑定组件*/
             void action(T o)
             {
-                valueChanged.value = o;
+                //Debug.Log($"<b>data -> binding</b> value is {o}, valueChanged.value is {valueChanged.value}");
+                if (valueChanged.value == null || valueChanged.value.Equals(o) == false)
+                {
+                    //Debug.Log($"<b>data -> binding set value</b>");
+                    valueChanged.value = o;
+                }
             }
 
             binding.RegisterPostSetEvent<T>(index, action);
@@ -107,8 +118,10 @@ namespace UIElementsKits.DataBinding
             void callback(ChangeEvent<T> evt)
             {
                 var value = binding.GetPropertyValue<T>(index);
+                //Debug.Log($"<b>binding -> data</b> data value is {value}, binding newValue is {evt.newValue}, evt.previousValue is {evt.previousValue}");
                 if (value == null || value.Equals(evt.newValue) == false)
                 {
+                    //Debug.Log($"<b>binding -> data set value</b>");
                     binding.SetPropertyValue(index, evt.newValue);
                 }
             }
