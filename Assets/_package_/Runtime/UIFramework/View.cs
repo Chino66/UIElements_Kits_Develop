@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine.UIElements;
 
-namespace UIElementsKits.UIFramework
+namespace UIElementsKits
 {
     public abstract class View
     {

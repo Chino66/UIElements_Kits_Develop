@@ -1,9 +1,26 @@
 {
   "name": "com.chino.uielements.kits",
   "displayName": "UIElements Kits",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "unity": "2020.1",
-  "description": "UIElements\u5f00\u53d1\u8f85\u52a9\u5de5\u5177",
+  "description": "UIElements",
   "type": "lib",
-  "dependencies": {}
+  "dependencies": {},
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chino66/UIElements_Kits_Develop.git"
+  },
+  "author": "chino66",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chino66/UIElements_Kits_Develop/issues"
+  },
+  "homepage": "https://github.com/Chino66/UIElements_Kits_Develop#readme",
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/@chino66"
+  }
 }

@@ -26,68 +26,68 @@ namespace Test.Editor
 
         private VisualElement GetUI()
         {
-            var data = new TheData();
-            var binding = new Binding(data);
-
-            var elementBinding = new UIElementBinding(binding);
-            /*借用bindingPath作为属性绑定依据 后续考虑其他方式*/
-            var root = new VisualElement();
-            var strLab = new Label();
-            strLab.text = "label";
-            root.Add(strLab);
-            strLab.bindingPath = "StringValue";
-            elementBinding.Bind(strLab);
-
-            var intLab = new Label();
-            intLab.text = "int";
-            root.Add(intLab);
-            intLab.bindingPath = "IntValue";
-            elementBinding.Bind(intLab);
-
-            var boolLab = new Label();
-            boolLab.text = "bool";
-            root.Add(boolLab);
-            boolLab.bindingPath = "BoolValue";
-            elementBinding.Bind(boolLab);
-
-            var boolTog = new Toggle();
-            boolTog.text = "boolTog";
-            boolTog.value = false;
-            root.Add(boolTog);
-            boolTog.bindingPath = "BoolValue";
-            elementBinding.Bind(boolTog);
-
-            var button = new Button();
-            button.text = "random label";
-            root.Add(button);
-            button.clicked += () =>
-            {
-                strLab.text = Random.Range(0, 100).ToString();
-                intLab.text = Random.Range(100, 200).ToString();
-                boolLab.text = data.IntValue % 2 == 1 ? "true" : "false";
-                boolTog.text = boolLab.text;
-                boolTog.value = bool.Parse(boolLab.text);
-            };
-
-            var button2 = new Button();
-            button2.text = "random data";
-            root.Add(button2);
-            button2.clicked += () =>
-            {
-                data.StringValue = Random.Range(0, 100).ToString();
-                data.IntValue = Random.Range(100, 200);
-                data.BoolValue = data.IntValue % 2 == 0 ? true : false;
-            };
-
-            var button3 = new Button();
-            button3.text = "show data";
-            root.Add(button3);
-            button3.clicked += () =>
-            {
-                Debug.Log($"data.StringValue:{data.StringValue}");
-                Debug.Log($"data.IntValue:{data.IntValue}");
-                Debug.Log($"data.BoolValue:{data.BoolValue}");
-            };
+            // var data = new TheData();
+            // var binding = new Binding(data);
+            //
+            // var elementBinding = new UIElementBinding(binding);
+            // /*借用bindingPath作为属性绑定依据 后续考虑其他方式*/
+            // var root = new VisualElement();
+            // var strLab = new Label();
+            // strLab.text = "label";
+            // root.Add(strLab);
+            // strLab.bindingPath = "StringValue";
+            // elementBinding.Bind(strLab);
+            //
+            // var intLab = new Label();
+            // intLab.text = "int";
+            // root.Add(intLab);
+            // intLab.bindingPath = "IntValue";
+            // elementBinding.Bind(intLab);
+            //
+            // var boolLab = new Label();
+            // boolLab.text = "bool";
+            // root.Add(boolLab);
+            // boolLab.bindingPath = "BoolValue";
+            // elementBinding.Bind(boolLab);
+            //
+            // var boolTog = new Toggle();
+            // boolTog.text = "boolTog";
+            // boolTog.value = false;
+            // root.Add(boolTog);
+            // boolTog.bindingPath = "BoolValue";
+            // elementBinding.Bind(boolTog);
+            //
+            // var button = new Button();
+            // button.text = "random label";
+            // root.Add(button);
+            // button.clicked += () =>
+            // {
+            //     strLab.text = Random.Range(0, 100).ToString();
+            //     intLab.text = Random.Range(100, 200).ToString();
+            //     boolLab.text = data.IntValue % 2 == 1 ? "true" : "false";
+            //     boolTog.text = boolLab.text;
+            //     boolTog.value = bool.Parse(boolLab.text);
+            // };
+            //
+            // var button2 = new Button();
+            // button2.text = "random data";
+            // root.Add(button2);
+            // button2.clicked += () =>
+            // {
+            //     data.StringValue = Random.Range(0, 100).ToString();
+            //     data.IntValue = Random.Range(100, 200);
+            //     data.BoolValue = data.IntValue % 2 == 0 ? true : false;
+            // };
+            //
+            // var button3 = new Button();
+            // button3.text = "show data";
+            // root.Add(button3);
+            // button3.clicked += () =>
+            // {
+            //     Debug.Log($"data.StringValue:{data.StringValue}");
+            //     Debug.Log($"data.IntValue:{data.IntValue}");
+            //     Debug.Log($"data.BoolValue:{data.BoolValue}");
+            // };
 
             /*var button4 = new Button();
             button4.text = "show lab generic type";
@@ -108,7 +108,7 @@ namespace Test.Editor
                 }
             };*/
 
-            var button4 = new Button();
+            /*var button4 = new Button();
             button4.text = "property set value";
             root.Add(button4);
             button4.clicked += () =>
@@ -122,7 +122,7 @@ namespace Test.Editor
                 
             };
             
-            return root;
+            return root;*/
 
             /*数据绑定手写代码示例*/
             // var valueChanged = (INotifyValueChanged<string>) lab;
@@ -137,6 +137,8 @@ namespace Test.Editor
             //         data.StringValue = evt.newValue;
             //     }
             // });
+
+            return null;
         }
 
         /*private void BindExample(Binding binding, object element)

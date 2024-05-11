@@ -14,15 +14,15 @@ public class Test : MonoBehaviour
 
     void Start()
     {
-        compareData = new CompareData();
-        compareData.StringValue = "0";
-        compareData.IntValue = 0;
-
-        data = new TheData();
-        binding = new Binding(data);
-
-        data.StringValue = "0";
-        data.IntValue = 0;
+        // compareData = new CompareData();
+        // compareData.StringValue = "0";
+        // compareData.IntValue = 0;
+        //
+        // data = new TheData();
+        // binding = new Binding(data);
+        //
+        // data.StringValue = "0";
+        // data.IntValue = 0;
     }
 
     void Update()

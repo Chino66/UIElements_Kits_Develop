@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 
-namespace UIElementsKits.UIFramework
+namespace UIElementsKits
 {
     public class UI : View
     {
